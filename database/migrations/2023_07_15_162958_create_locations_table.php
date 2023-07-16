@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->foreignId("item_id")->constrained();
-            $table->string("address");
-            $table->integer("zip_code");
-            $table->foreignId("city_id")->constrained();
-            $table->foreignId("state_id")->constrained();
-            $table->foreignId("country_id")->constrained();
+            $table->foreignId('item_id')->constrained();
+            $table->string('address');
+            $table->integer('zip_code');
+            $table->foreignId('city_id')->constrained();
+            $table->foreignId('state_id')->constrained();
+            $table->foreignId('country_id')->constrained();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -30,7 +30,10 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('locations', function (Blueprint $table) {
-            $table->dropForeign(['item_id', 'city_id', 'state_id', 'country_id']);
+            $table->dropForeign(['item_id']);
+            $table->dropForeign(['city_id']);
+            $table->dropForeign(['state_id']);
+            $table->dropForeign(['country_id']);
         });
         Schema::dropIfExists('locations');
     }

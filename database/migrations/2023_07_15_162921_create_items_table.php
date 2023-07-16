@@ -13,21 +13,22 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string("name")->nullable(false);
-            $table->integer("rating")->default(0);
-            $table->enum("category", [
-                "hotel",
-                "alternative",
-                "hostel",
-                "lodge",
-                "resort",
-                "guest-house",
+            $table->foreignId('hotelier_id')->constrained();
+            $table->string('name')->nullable(false);
+            $table->integer('rating')->default(0);
+            $table->enum('category', [
+                'hotel',
+                'alternative',
+                'hostel',
+                'lodge',
+                'resort',
+                'guest-house',
             ])->nullable(false);
-            $table->string("image")->nullable(false);
-            $table->integer("reputation")->default(0);
-            $table->foreignId("badge_id")->constrained();
-            $table->float("price")->default(0);
-            $table->integer("availability")->default(0);
+            $table->string('image')->nullable(false);
+            $table->integer('reputation')->default(0);
+            $table->foreignId('badge_id')->constrained();
+            $table->float('price')->default(0);
+            $table->integer('availability')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
