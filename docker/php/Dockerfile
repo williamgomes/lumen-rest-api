@@ -14,13 +14,14 @@ RUN docker-php-ext-install soap \
 
 COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
 
+RUN echo 'memory_limit = 2048M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini;
+
 FROM base as dev
 
-WORKDIR /app
-
 FROM base as coverage
-
 RUN pecl install pcov \
     && docker-php-ext-enable pcov
 
 COPY ./docker/php/pcov.ini /usr/local/etc/php/conf.d/pcov.ini
+
+WORKDIR /app
