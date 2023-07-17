@@ -11,6 +11,20 @@ class Item extends Model
 {
     use HasFactory;
 
+    protected $guarded = [
+        'id'
+    ];
+
+    protected $fillable = [
+        'name',
+        'category',
+        'image',
+        'reputation',
+        'badge_id',
+        'price',
+        'availability',
+    ];
+
     public function hotelier(): BelongsTo
     {
         return $this->belongsTo(Hotelier::class);

@@ -10,6 +10,19 @@ class Location extends Model
 {
     use HasFactory;
 
+    protected $guarded = [
+        'id'
+    ];
+
+    protected $fillable = [
+        'address',
+        'zip_code',
+        'item_id',
+        'city_id',
+        'state_id',
+        'country_id',
+    ];
+
     public function city(): BelongsTo
     {
         return $this->belongsTo(City::class);
