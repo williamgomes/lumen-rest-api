@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Country extends Model
 {
@@ -25,8 +27,8 @@ class Country extends Model
         return $this->hasMany(State::class);
     }
 
-    public function items(): HasMany
+    public function items(): HasOne
     {
-        return $this->hasMany(Item::class);
+        return $this->hasOne(Location::class);
     }
 }
