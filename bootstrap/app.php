@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\FakeAuthMiddleware;
 use SwaggerLume\ServiceProvider;
 
 require_once __DIR__.'/../vendor/autoload.php';
@@ -85,6 +86,11 @@ $app->configure('app');
 // $app->routeMiddleware([
 //     'auth' => App\Http\Middleware\Authenticate::class,
 // ]);
+
+$app->routeMiddleware([
+    'fakeAuth' => FakeAuthMiddleware::class,
+]);
+
 
 /*
 |--------------------------------------------------------------------------
