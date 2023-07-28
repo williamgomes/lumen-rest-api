@@ -27,7 +27,7 @@ php artisan db:seed
 
 Now the application is up and running with necessary fake data for testing.
 
-### Test the application
+### How to use the endpoints
 1. In order to test the application, for now REST API testing tool `Postman` or something similar will be necessary. I wanted to implemented `Swagger` but was facing some difficulties.
 2. Possible end points are as below (required form-params are listed below)
 ```text
@@ -74,3 +74,9 @@ GET http://localhost/api/countries[/{perPage}] << list of all the active countri
 -> accommodation: NUMERIC (number of available accommodations)
 -> item_id: NUMERIC (id of an item from items table that is not marked as deleted and have more available accommodation than required)
 ```
+### How to test the endpoints
+I implemented one feature/interface test just to showcase my skills. In order to run the test, ssh into PHP docker container and run below command.
+```shell
+vendor/bin/phpunit
+```
+> There are 4 test cases with 23 assertions and all should be green. I will add more tests if possible.
