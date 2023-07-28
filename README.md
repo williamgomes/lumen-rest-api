@@ -32,23 +32,23 @@ Now the application is up and running with necessary fake data for testing.
 2. Possible end points are as below (required form-params are listed below)
 ```text
 <<Item Endpoits>>
-GET http://localhost/api/hotelier/{hotelierId}/items[/perPage/{perPage}] << get list of all items own by a hotelier(with pagination)(perPage is optional param)
-GET http://localhost/api/hotelier/{hotelierId}/items/ratings/{rating}[/perPage/{perPage}]  << get list of all items that has given rating own by the given hotelier(with pagination)(perPage is optional param)
-GET http://localhost/api/hotelier/{hotelierId}/items/cities/{cityId}[/perPage/{perPage}]  << get list of all items that has given city own by the given hotelier(with pagination)(perPage is optional param)
-GET http://localhost/api/hotelier/{hotelierId}/items/badges/{badgeName}[/perPage/{perPage}] << get list of all items that has given reputation badge(red, yellow, green) own by a hotelier(with pagination)(perPage is optional param)
-GET http://localhost/api/hotelier/{hotelierId}/items/{itemId} << get a single item own by the given hotelier
-POST http://localhost/api/hotelier/{hotelierId}/items << create a new item own by the given hotelier
-PUT http://localhost/api/hotelier/{hotelierId}/items/{itemId} << update the given item own by the given hotelier
-DELETE http://localhost/api/hotelier/{hotelierId}/items/{itemId} << mark as deleted the given item own by the given hotelier
+GET http://localhost/api/hotelier/{hotelierId}/items[/perPage/{perPage}]                        << get list of all items own by a hotelier(with pagination)(perPage is optional param)
+GET http://localhost/api/hotelier/{hotelierId}/items/ratings/{rating}[/perPage/{perPage}]       << get list of all items that has given rating own by the given hotelier(with pagination)(perPage is optional param)
+GET http://localhost/api/hotelier/{hotelierId}/items/cities/{cityId}[/perPage/{perPage}]        << get list of all items that has given city own by the given hotelier(with pagination)(perPage is optional param)
+GET http://localhost/api/hotelier/{hotelierId}/items/badges/{badgeName}[/perPage/{perPage}]     << get list of all items that has given reputation badge(red, yellow, green) own by a hotelier(with pagination)(perPage is optional param)
+GET http://localhost/api/hotelier/{hotelierId}/items/{itemId}                                   << get a single item own by the given hotelier
+POST http://localhost/api/hotelier/{hotelierId}/items                                           << create a new item own by the given hotelier
+PUT http://localhost/api/hotelier/{hotelierId}/items/{itemId}                                   << update the given item own by the given hotelier
+DELETE http://localhost/api/hotelier/{hotelierId}/items/{itemId}                                << mark as deleted the given item own by the given hotelier
 
 <<Reservation Endpoits>>
-GET http://localhost/api/reservations/{reservationId} << get the given reservation
-POST http://localhost/api/reservations/ << create a new reservation
+GET http://localhost/api/reservations/{reservationId}                                           << get the given reservation
+POST http://localhost/api/reservations/                                                         << create a new reservation
 
 <<Other Endpoits>>
-GET http://localhost/api/cities[/{perPage}] << list of all the active cities (with pagination)
-GET http://localhost/api/states[/{perPage}] << list of all the active states (with pagination)
-GET http://localhost/api/countries[/{perPage}] << list of all the active countries (with pagination)
+GET http://localhost/api/cities[/{perPage}]                                                     << list of all the active cities (with pagination)
+GET http://localhost/api/states[/{perPage}]                                                     << list of all the active states (with pagination)
+GET http://localhost/api/countries[/{perPage}]                                                  << list of all the active countries (with pagination)
 ```
 4. Form-params for `POST http://localhost/api/hotelier/{hotelierId}/items` and `PUT http://localhost/api/hotelier/{hotelierId}/items/{itemId}` methods
 
