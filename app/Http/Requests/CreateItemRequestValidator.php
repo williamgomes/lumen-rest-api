@@ -3,20 +3,17 @@
 namespace App\Http\Requests;
 
 use App\Models\City;
-use App\Models\Enums\Badges;
 use App\Models\Enums\Categories;
 use App\Models\State;
 use App\Rules\CountryValidationRule;
 use App\Rules\ForbiddenWordsValidationRule;
+use App\Rules\StateValidationRule;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use Illuminate\Validation\ValidationException;
 use Laravel\Lumen\Routing\ProvidesConvenienceMethods;
 
-class CreateItemRequestValidator implements RequestValidatorInterface
+class CreateItemRequestValidator extends AbstractRequestValidator
 {
-    use ProvidesConvenienceMethods;
-
     private array $checkWords = [
         'Free',
         'Offer',
@@ -29,11 +26,11 @@ class CreateItemRequestValidator implements RequestValidatorInterface
         return [
             'name' => ['required', 'string', 'min:10', new ForbiddenWordsValidationRule($this->checkWords)],
             'category' => ['required', Rule::in(array_column(Categories::cases(), 'value'))],
-            'rating' => ['required', 'integer', 'min:0', 'max:5'],
-            'city' => ['required', 'integer', 'exists:cities,id', new CountryValidationRule($request->input('country'), new City())],
-            'state' => ['required', 'integer', 'exists:states,id', new CountryValidationRule($request->input('country'), new State())],
-            'country' => ['required', 'integer', 'exists:countries,id'],
-            'zip_code' => ['required', 'integer', 'min:5', 'max:5'],
+            'rating' => ['required', 'numeric', 'min:0', 'max:5'],
+            'city' => ['required', 'numeric', 'exists:cities,id', new CountryValidationRule($request->input('country'), new City()), new StateValidationRule($request->input('state'), new City())],
+            'state' => ['required', 'numeric', 'exists:states,id', new CountryValidationRule($request->input('country'), new State())],
+            'country' => ['required', 'numeric', 'exists:countries,id'],
+            'zip_code' => ['required', 'numeric', 'digits_between:5,5'],
             'address' => ['required', 'string'],
             'image' => ['required', 'string', 'url'],
             'reputation' => ['required', 'string', 'min:0', 'max:1000'],
@@ -45,13 +42,5 @@ class CreateItemRequestValidator implements RequestValidatorInterface
     protected function messages(): array
     {
         return [];
-    }
-
-    /**
-     * @throws ValidationException
-     */
-    public function validateRequest(Request $request): void
-    {
-        $this->validate($request, $this->rules($request), $this->messages());
     }
 }
