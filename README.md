@@ -32,8 +32,7 @@ php artisan db:seed
 Now the application is up and running with necessary fake data for testing.
 
 ### How to use the endpoints
-1. In order to test the application, for now REST API testing tool `Postman` or something similar will be necessary. I wanted to implemented `Swagger` but was facing some difficulties.
-2. Also, another way of testing the API is using Swagger. Please go to http://localhost/api/documentation from your browser to browse available endpoints and test them one by one.
+1. In order to test the application, for now REST API testing tool `Postman` or something similar will be necessary. Also, another way of testing the API is using Swagger. Please go to http://localhost/api/documentation from your browser to browse available endpoints and test them one by one.
 3. If the documentation link above is not working, please SSH to PHP container and then run `php artisan swagger-lume:generate` command which will generate the documentation automatically and afterwards the above URL will work.
 ### How to test the endpoints
 I implemented one feature/interface test just to showcase my skills. In order to run the test, ssh into PHP docker container and run below command.
