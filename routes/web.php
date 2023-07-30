@@ -18,9 +18,9 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api/'], function ($router) {
-    $router->get('cities[/{perPage}]', 'CityController@index');
-    $router->get('states[/{perPage}]', 'StateController@index');
-    $router->get('countries[/{perPage}]', 'CountryController@index');
+    $router->get('cities[/perPage/{perPage}]', 'CityController@index');
+    $router->get('states[/perPage/{perPage}]', 'StateController@index');
+    $router->get('countries[/perPage/{perPage}]', 'CountryController@index');
 
     $router->group(['prefix' => 'hotelier/{hotelierId}', 'middleware' => 'fakeAuth'], function ($router) {
         $router->get('items[/perPage/{perPage}]', 'ItemsController@index');
