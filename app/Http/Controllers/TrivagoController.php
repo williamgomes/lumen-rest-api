@@ -13,6 +13,8 @@ use League\Fractal\Resource\Item;
 use League\Fractal\Serializer\ArraySerializer;
 use League\Fractal\TransformerAbstract;
 
+
+/** @OA\Info(title="Trivago Case Study", version="1.0") */
 class TrivagoController extends BaseController
 {
     protected const MIN_ITEMS_PER_PAGE = 10;
