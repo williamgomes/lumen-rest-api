@@ -23,7 +23,7 @@ class ItemTransformer extends TransformerAbstract
             'reputation_badge' => $item->badge()->value('name'),
             'price' => $item->price,
             'availability' => $item->availability,
-
+            'is_deleted' => !empty($item->deleted_at),
         ];
     }
 
