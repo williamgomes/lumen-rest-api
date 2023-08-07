@@ -1,10 +1,10 @@
-# Trivago Case Study
+# Lumen REST Api
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
 [![License](https://img.shields.io/packagist/l/laravel/lumen)](https://packagist.org/packages/laravel/lumen-framework)
 
 
-This case study was built using Lumen Framework, Mysql & Docker. To run this project, please make sure that you have Docker setup in your machine. If not, please download Docker from [here](https://www.docker.com/products/docker-desktop/).
+This REST Api was built using Lumen Framework, Mysql & Docker. To run this project, please make sure that you have Docker setup in your machine. If not, please download Docker from [here](https://www.docker.com/products/docker-desktop/).
 
 ### How to run the app
 1. Once you downloaded the app in your machine, please go inside the project directory and run below command.
